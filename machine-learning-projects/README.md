@@ -87,3 +87,14 @@ Classify news articles into multiple categories (e.g., Business, Sports, Politic
 
 ## 📌 Project Structure (Suggested)
 
+Machine-Learning-Project/
+│
+├── notebooks/
+│ ├── part_a_imdb_sentiment.ipynb
+│ ├── part_b_news_classification.ipynb
+│
+├── data/
+│ ├── imdb_dataset/
+│ ├── news_dataset/
+│
+└── README.md
