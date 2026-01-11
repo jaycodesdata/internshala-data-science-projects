@@ -1,100 +1,101 @@
-# Machine Learning Projects — Text Classification (Part A & Part B)
+# Machine Learning Project — Airbnb Price Prediction & Customer Churn Modeling
 
-This repository contains two machine learning projects focused on text classification using NLP techniques:  
-(1) IMDb Movie Review Sentiment Analysis, and  
-(2) News Article Topic Classification.
+This repository contains two machine learning projects:
+
+- **Part A:** Airbnb Price Prediction (Regression)
+- **Part B:** Telecom Customer Churn Prediction (Classification)
+
+Both projects cover end-to-end ML workflows including data preprocessing, feature engineering, model training, tuning, and evaluation.
 
 ---
 
-## 📌 Part A — IMDb Sentiment Analysis
+## 📌 Part A — Airbnb Price Prediction (Regression)
 
-### 📍 Objective
-Build a binary classifier to predict whether a movie review is **positive** or **negative** using NLP and Machine Learning techniques.
+### 🎯 Objective
+Predict nightly Airbnb listing prices using listing, location, and host-related features.
 
-### 🧩 Dataset
-- IMDb movie reviews dataset (50,000 reviews)
-- Binary labels: `positive` / `negative`
+### 🧪 Dataset
+- ~74,000 Airbnb listings from major U.S. cities
+- Target variable: `price` (continuous)
 
-### 🔧 Techniques Used
-- Data Cleaning & Preprocessing
-- Tokenization
-- Stopword Removal
-- Lemmatization
-- TF-IDF Vectorization
-- Logistic Regression & SVM
+### 🔧 Techniques & Workflow
+- Data Cleaning & Missing Value Handling
+- Categorical Encoding (One-Hot)
+- Feature Engineering
+- XGBoost Regression Model
+- RandomizedSearch for Hyperparameter Tuning
 - Train/Test Split
 - Model Evaluation
 
-### 📈 Model Performance
-- Logistic Regression achieved the best performance
-- **Accuracy:** ~89%
-- Evaluation using: Accuracy, Precision, Recall, F1, ROC-AUC
+### 📊 Results
+- **Best Model:** XGBoost Regressor
+- Metrics: RMSE · MAE · R²
+- Important predictive features included:
+  - City
+  - Accommodates
+  - Bedrooms
+  - Number of Reviews
 
-### 🧠 Key Insights
-- Bigrams improved sentiment context
-- Positive & negative words were identified through feature coefficients
-- ROC curve showed strong separability between classes
-
----
-
-## 📌 Part B — News Article Classification
-
-### 📍 Objective
-Classify news articles into multiple categories (e.g., Business, Sports, Politics) using multi-class text classification.
-
-### 🧩 Dataset
-- News article dataset (`~50,000+ samples`)
-- Multi-class labels across 10 categories
-
-### 🔧 Techniques Used
-- Text Preprocessing & Cleaning
-- TF-IDF Vectorization
-- Multi-class Classification
-- Logistic Regression, SVM, Random Forest, XGBoost
-- Hyperparameter Tuning (GridSearch)
-- Confusion Matrix Analysis
-
-### 📈 Model Performance
-- Linear SVM provided the highest performance
-- **Test Accuracy:** ~81%
-
-### 🧠 Key Insights
-- Class imbalance impacted accuracy for certain categories
-- Hyperparameter tuning improved classification margin
-- Confusion matrix helped identify frequently misclassified categories
+### 📝 Key Insight
+Pricing varies significantly by city and property capacity. Features related to location and space had the strongest predictive influence.
 
 ---
 
-## 🛠 Tools & Libraries
+## 📌 Part B — Customer Churn Prediction (Classification)
+
+### 🎯 Objective
+Predict whether a telecom customer will churn based on demographic, service, and billing features.
+
+### 🧪 Dataset
+- ~7,000 customers
+- Target variable: `Churn` (Yes/No)
+
+### 🔧 Techniques & Workflow
+- Data Cleaning & Handling Missing Values
+- Standardization
+- One-Hot Encoding for Categorical Features
+- Train/Test Split (Stratified)
+- XGBoost Classifier
+- RandomizedSearch for Parameter Tuning
+- Early Stopping
+- Feature Importance Analysis
+
+### 📊 Results
+- **Best Model:** XGBoost Classifier
+- Performance:
+  - Accuracy: ~77%
+  - Recall: ~75%
+  - ROC-AUC: ~0.84
+
+### 📝 Key Insight
+Contract Type and Internet Service were key churn drivers. Recall was prioritized due to business value in catching churners for customer retention.
+
+---
+
+## 🛠 Tools & Libraries Used
 
 - **Languages:** Python
-- **Libraries:**  
-  `Pandas`, `NumPy`, `Scikit-Learn`, `XGBoost`,  
-  `Matplotlib`, `Seaborn`
-- **ML Techniques:** Classification, NLP, TF-IDF, Model Evaluation
-- **Metrics:** Accuracy, Precision, Recall, F1, ROC-AUC
+- **Libraries:**
+  - Pandas · NumPy · Scikit-Learn · XGBoost
+  - Matplotlib · Seaborn
+- **ML Concepts:**
+  - Regression · Classification
+  - Feature Engineering · Model Evaluation
+  - Hyperparameter Tuning
 
 ---
 
-## 🚀 Possible Improvements
+## 📂 Suggested Project Structure
 
-- Experiment with neural models (RNN/CNN/BERT)
-- Apply ensemble voting methods
-- Expand preprocessing with contextual embeddings (Word2Vec/FastText)
-- Integrate deployment through an API
-
----
-
-## 📌 Project Structure (Suggested)
-
-Machine-Learning-Project/
+<pre>
+📁 Machine-Learning-Project/
 │
-├── notebooks/
-│ ├── part_a_imdb_sentiment.ipynb
-│ ├── part_b_news_classification.ipynb
+├── 📁 notebooks/
+│ ├── 📄 airbnb_price_prediction.ipynb
+│ └── 📄 churn_prediction.ipynb
 │
-├── data/
-│ ├── imdb_dataset/
-│ ├── news_dataset/
-│
-└── README.md
+├── 📁 data/
+│ ├── 📄 Customer_data.xlsx
+│ └── 📄 Airbnb_data.xlsx 
+└── 📄 README.md
+ </pre>
